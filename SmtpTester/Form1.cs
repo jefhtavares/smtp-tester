@@ -42,10 +42,7 @@ namespace SmtpTester
             };
 
             message.To.Add(receiver);
-
-            //ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
-            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls;
-
+            
             try
             {
                 txtOutput.Clear();
@@ -63,19 +60,19 @@ namespace SmtpTester
 
         private void ProcessException(Exception ex)
         {
-            string mainMessage = ex.Message;
+            string mainMessage = $"Exception: {ex.Message}{Environment.NewLine}{Environment.NewLine}";
             string innerMessages = "";
 
             var exception = ex;
 
             while (exception.InnerException != null)
             {
-                innerMessages += $"{exception.InnerException.Message}{Environment.NewLine}";
+                innerMessages += $"Inner Exception: {exception.InnerException.Message}{Environment.NewLine}{Environment.NewLine}";
 
                 exception = exception.InnerException;
             }
 
-            txtOutput.Text += mainMessage + Environment.NewLine;
+            txtOutput.Text += mainMessage;
             txtOutput.Text += innerMessages;
         }
     }
