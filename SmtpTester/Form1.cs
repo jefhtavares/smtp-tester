@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Net;
 using System.Net.Mail;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SmtpTester
@@ -22,18 +15,17 @@ namespace SmtpTester
         private void btnTest_Click(object sender, EventArgs e)
         {
             int port = Convert.ToInt32(txtPort.Value);
-            var msgSender = txtUsername.Text;
 
-            var receiver = string.IsNullOrEmpty(txtReceiver.Text) ? msgSender : txtReceiver.Text;
-
+            var msgSender = chkUsernameAsAddress.Checked ? txtUsername.Text : txtAddress.Text;
+            var receiver = string.IsNullOrWhiteSpace(txtReceiver.Text) ? msgSender : txtReceiver.Text;
+            
             var client = new SmtpClient(txtSmtp.Text, port)
             {
                 EnableSsl = checkSsl.Checked,
                 UseDefaultCredentials = false,
-                DeliveryMethod = SmtpDeliveryMethod.Network
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                Credentials = new NetworkCredential(txtUsername.Text, txtPassword.Text)
             };
-
-            client.Credentials = new NetworkCredential(txtUsername.Text, txtPassword.Text);
 
             var message = new MailMessage
             {

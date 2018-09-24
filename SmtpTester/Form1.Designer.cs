@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtAddress = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
@@ -42,22 +44,42 @@
             this.txtReceiver = new System.Windows.Forms.TextBox();
             this.txtOutput = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.chkUsernameAsAddress = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtPort)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.chkUsernameAsAddress);
+            this.groupBox1.Controls.Add(this.txtAddress);
+            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtPassword);
             this.groupBox1.Controls.Add(this.txtUsername);
             this.groupBox1.Location = new System.Drawing.Point(12, 67);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(435, 134);
+            this.groupBox1.Size = new System.Drawing.Size(435, 169);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Credentials";
+            // 
+            // txtAddress
+            // 
+            this.txtAddress.Location = new System.Drawing.Point(6, 138);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(423, 22);
+            this.txtAddress.TabIndex = 6;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(5, 121);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(58, 14);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Address";
             // 
             // label2
             // 
@@ -81,7 +103,7 @@
             // 
             this.txtPassword.Location = new System.Drawing.Point(6, 89);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(300, 22);
+            this.txtPassword.Size = new System.Drawing.Size(423, 22);
             this.txtPassword.TabIndex = 1;
             this.txtPassword.UseSystemPasswordChar = true;
             // 
@@ -89,7 +111,7 @@
             // 
             this.txtUsername.Location = new System.Drawing.Point(6, 40);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(300, 22);
+            this.txtUsername.Size = new System.Drawing.Size(423, 22);
             this.txtUsername.TabIndex = 0;
             // 
             // label3
@@ -120,9 +142,9 @@
             // 
             // btnTest
             // 
-            this.btnTest.Location = new System.Drawing.Point(12, 268);
+            this.btnTest.Location = new System.Drawing.Point(13, 291);
             this.btnTest.Name = "btnTest";
-            this.btnTest.Size = new System.Drawing.Size(106, 33);
+            this.btnTest.Size = new System.Drawing.Size(155, 33);
             this.btnTest.TabIndex = 7;
             this.btnTest.Text = "Go!";
             this.btnTest.UseVisualStyleBackColor = true;
@@ -144,7 +166,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(11, 216);
+            this.label4.Location = new System.Drawing.Point(12, 239);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(60, 14);
             this.label4.TabIndex = 10;
@@ -152,15 +174,15 @@
             // 
             // txtReceiver
             // 
-            this.txtReceiver.Location = new System.Drawing.Point(12, 230);
+            this.txtReceiver.Location = new System.Drawing.Point(13, 253);
             this.txtReceiver.Name = "txtReceiver";
-            this.txtReceiver.Size = new System.Drawing.Size(309, 22);
+            this.txtReceiver.Size = new System.Drawing.Size(428, 22);
             this.txtReceiver.TabIndex = 9;
             // 
             // txtOutput
             // 
             this.txtOutput.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtOutput.Location = new System.Drawing.Point(12, 328);
+            this.txtOutput.Location = new System.Drawing.Point(13, 351);
             this.txtOutput.Multiline = true;
             this.txtOutput.Name = "txtOutput";
             this.txtOutput.ReadOnly = true;
@@ -170,17 +192,28 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(9, 313);
+            this.label5.Location = new System.Drawing.Point(10, 336);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(51, 14);
             this.label5.TabIndex = 12;
             this.label5.Text = "Output";
             // 
+            // chkUsernameAsAddress
+            // 
+            this.chkUsernameAsAddress.AutoSize = true;
+            this.chkUsernameAsAddress.Font = new System.Drawing.Font("Verdana", 8F);
+            this.chkUsernameAsAddress.Location = new System.Drawing.Point(311, 121);
+            this.chkUsernameAsAddress.Name = "chkUsernameAsAddress";
+            this.chkUsernameAsAddress.Size = new System.Drawing.Size(118, 17);
+            this.chkUsernameAsAddress.TabIndex = 13;
+            this.chkUsernameAsAddress.Text = "Idem Username";
+            this.chkUsernameAsAddress.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(500, 573);
+            this.ClientSize = new System.Drawing.Size(500, 586);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtOutput);
             this.Controls.Add(this.label4);
@@ -222,6 +255,9 @@
         private System.Windows.Forms.TextBox txtReceiver;
         private System.Windows.Forms.TextBox txtOutput;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtAddress;
+        private System.Windows.Forms.CheckBox chkUsernameAsAddress;
     }
 }
 
